@@ -1,0 +1,96 @@
+@import '_mediaqueries'
+@import '_colors'
+
+.header
+  display: flex
+  align-items: center
+  background-color: $white
+  color: $darkgrey
+  padding: 20px
+
+  @include for-phone-only
+    justify-content: space-between
+
+  @include for-tablet-portrait-up
+    justify-content: space-between
+
+  @include for-tablet-landscape-up
+    justify-content: center
+
+  .logo
+    width: 150px
+    margin-right: 50px
+
+  .nav-links
+    list-style: none
+    display: none
+
+    @include for-tablet-landscape-up
+      display: flex
+
+    .nav-link
+      margin-right: 10px
+      text-decoration: none
+      color: $darkgrey
+      font-weight: lighter
+      letter-spacing: 0.2rem
+
+      @include for-phone-only
+        margin-right: 30px
+
+      @include for-tablet-landscape-up
+        margin-right: 100px
+
+      &:hover
+        color: $pink 
+
+      &.active
+        color: $pink 
+
+  .burger-icon
+    display: none
+
+    .bar
+      height: 4px
+      width: 30px
+      background-color: $beige
+      margin: 6px 0
+
+    &.open
+      .bar
+        background-color: $pink
+
+    @include for-phone-only
+      display: block
+      cursor: pointer
+
+    @include for-tablet-portrait-up
+      display: block
+      cursor: pointer
+
+    @include for-tablet-landscape-up
+      display: none
+
+.burger-icon.open .bar:nth-child(1)
+  transform: rotate(-45deg) translate(-9px, 5px)
+
+.burger-icon.open .bar:nth-child(2)
+  opacity: 0
+
+.burger-icon.open .bar:nth-child(3)
+  transform: rotate(45deg) translate(-9px, -5px)
+
+.nav-links.show
+  height: 75vh
+  display: flex
+  flex-direction: column
+  align-items: center
+  background-color: rgba(255, 255, 255)
+  position: absolute
+  top: 115px
+  right: 0
+  left: 0
+  z-index: 10
+
+.nav-links.show li
+  margin: 20px 0

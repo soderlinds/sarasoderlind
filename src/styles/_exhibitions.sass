@@ -1,0 +1,60 @@
+@import '_mediaqueries'
+
+.gallery
+  display: grid
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr))
+  gap: 20px
+  margin-bottom: 100px
+
+  @include for-phone-only
+    margin-left: 50px
+    margin-right: 50px
+
+  @include for-tablet-landscape-up
+    margin-left: 300px
+    margin-right: 300px
+
+  @include for-big-desktop-up
+    margin-left: 500px
+    margin-right: 500px
+
+  .image-container
+    position: relative
+    cursor: pointer
+    overflow: hidden
+
+    img
+      width: 95%
+      max-height: 95%
+      transition: transform 0.2s
+
+    &:hover img
+      filter: brightness(1.1)
+
+.image-overlay
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  background: rgba(0, 0, 0, 0.9)
+  display: flex
+  justify-content: center
+  align-items: center
+  z-index: 100
+
+.image-popup
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  background: rgba(0, 0, 0, 0.9)
+  display: flex
+  justify-content: center
+  align-items: center
+  z-index: 100
+
+  img
+    max-width: 90%
+    max-height: 90%

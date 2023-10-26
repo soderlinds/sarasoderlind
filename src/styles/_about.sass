@@ -1,0 +1,21 @@
+@import '_mediaqueries'
+
+.content-about
+  width: 60vw
+  margin: 0 auto
+  justify-content: center
+
+@include for-phone-only 
+  .content-about
+    text-align: left
+
+@include for-tablet-landscape-up 
+  .content-about
+     text-align: center
+     width: 40vw
+
+@include for-big-desktop-up 
+  .content-about
+     text-align: center
+     width: 30vw
+
