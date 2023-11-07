@@ -1,9 +1,12 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { NavLink } from 'react-router-dom'; // Import NavLink
+import { NavLink } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import logo from '../images/logo2.png';
 import '../styles/_header.sass';
 
 const Header = () => {
+  const { t, i18n } = useTranslation();
+
   const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState(false);
 
   const toggleBurgerMenu = () => {
@@ -31,9 +34,13 @@ const Header = () => {
     };
   }, [closeBurgerMenu]);
 
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+  };
+
   return (
     <header className="header">
-      <NavLink to="/"> {/* Use NavLink instead of Link */}
+      <NavLink to="/">
         <img src={logo} alt="Logo" className="logo" />
       </NavLink>
       <nav>
@@ -48,23 +55,28 @@ const Header = () => {
         <ul className={`nav-links ${isBurgerMenuOpen ? 'show' : ''}`}>
           <li>
             <NavLink to="/work" className="nav-link" activeClassName="active-link" onClick={closeBurgerMenu}>
-              WORK
+              {t('work')}
             </NavLink>
           </li>
           <li>
             <NavLink to="/about" className="nav-link" activeClassName="active-link" onClick={closeBurgerMenu}>
-              ABOUT
+              {t('about')}
             </NavLink>
           </li>
           <li>
             <NavLink to="/exhibitions" className="nav-link" activeClassName="active-link" onClick={closeBurgerMenu}>
-              EXHIBITIONS
+              {t('exhibitions')}
             </NavLink>
           </li>
           <li>
             <NavLink to="/contact" className="nav-link" activeClassName="active-link" onClick={closeBurgerMenu}>
-              CONTACT
+              {t('contact')}
             </NavLink>
+          </li>
+          <li className="language-toggle-mobile">
+            <span onClick={() => changeLanguage('en')}>English</span>
+            <span> | </span>
+            <span onClick={() => changeLanguage('swe')}>Svenska</span>
           </li>
         </ul>
       </nav>

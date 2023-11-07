@@ -1,11 +1,13 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import emailjs from '@emailjs/browser';
 import '../styles/_contact.sass';
 import '../styles/_slide-in.css';
 import '../styles/_typography.sass';
 
 const Contact = () => {
+  const { t } = useTranslation();
   const [isAnimated, setIsAnimated] = useState(false);
   const location = useLocation();
 
@@ -37,18 +39,18 @@ const Contact = () => {
   return (
     <div className={`slide-in ${isAnimated ? 'active' : ''} form`}>
       <div className="form">
-        <h2 className="header-small">Have a comment or inquiry? Say hello!</h2>
+        <h2 className="header-small">{t('contact-intro')}</h2>
         {isSubmitted ? ( 
-          <div className="confirmation-message"> <p>You're awesome! 🎉 <br /> And also, your message was sent successfully.</p></div>
+          <div className="confirmation-message"> <p>{t('contact-confirmation')}</p></div>
         ) : (
           <form ref={form} onSubmit={sendEmail}>
-            <label className="label-contact">Name:</label>
+            <label className="label-contact">{t('contact-name')}</label>
             <input className="input-contact" type="text" name="user_name" />
-            <label className="label-contact">Email:</label>
+            <label className="label-contact">{t('contact-email')}</label>
             <input className="input-contact" type="email" name="user_email" required={true} />
-            <label className="label-contact">Message:</label>
+            <label className="label-contact">{t('contact-message')}</label>
             <textarea className="input-contact" name="message" />
-            <input type="submit" value="Send" />
+            <input type="submit" value={t('send')} />
           </form>
         )}
       </div>

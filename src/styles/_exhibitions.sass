@@ -31,6 +31,19 @@
     &:hover img
       filter: brightness(1.1)
 
+.image-text 
+  position: absolute
+  bottom: 10px
+  left: 50%
+  transform: translateX(-50%)
+  opacity: 0
+  transition: opacity 0.3s
+  font-size: 1.5em
+  color: #fff
+
+  &:hover .image-text 
+    opacity: 1
+
 .image-overlay
   position: fixed
   top: 0

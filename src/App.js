@@ -8,6 +8,7 @@ import Exhibitions from './components/Exhibitions';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import './styles/_general.sass';
+import './i18n';
 
 function App() {
   return (

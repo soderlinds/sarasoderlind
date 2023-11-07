@@ -35,9 +35,6 @@
       font-weight: lighter
       letter-spacing: 0.2rem
 
-      @include for-phone-only
-        margin-right: 30px
-
       @include for-tablet-landscape-up
         margin-right: 100px
 
@@ -81,7 +78,7 @@
   transform: rotate(45deg) translate(-9px, -5px)
 
 .nav-links.show
-  height: 75vh
+  height: 80vh
   display: flex
   flex-direction: column
   align-items: center
@@ -93,4 +90,16 @@
   z-index: 10
 
 .nav-links.show li
-  margin: 20px 0
+  margin: 30px 0
+
+.language-toggle-mobile
+  text-decoration: none
+  letter-spacing: 0.1rem
+  font-size: 0.8rem
+  cursor: pointer
+  color: $beige
+  padding-right: 15px
+  margin-top: 2px
+
+ 
+
